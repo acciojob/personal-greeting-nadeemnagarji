@@ -4,8 +4,13 @@ export default function Input() {
     const [data,setData] = useState("")
 
     let handleInput = (e)=>{
-        setData(e.target.value)
-        console.log(e.target.value);
+        if(e.target.value !==""){
+            let message = `Hello ${e.target.value}!`
+            setData(message)
+        }else{
+            setData("")
+        }
+
     }
 
    return(
@@ -14,7 +19,7 @@ export default function Input() {
     <>
     <p>Enter your name:</p>
     <input type="text" onChange={handleInput}/>
-    {data? <p>Hello {data}!</p> :null}
+    {data? <p>{data}</p> :null}
     </>
    )
 };
